@@ -118,7 +118,7 @@ def main():
         "P    P             P",
         "P                  P",
         "P                  P",
-        "PPPPPPPPPPPPPPPPPPPP",]
+        "PPPPPPPPPPPPPPPPPPPP"]
 
     # build the level
     for row in level:
