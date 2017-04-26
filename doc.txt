@@ -10,11 +10,15 @@ SDL is similar in structure to a very rudimentary version of DirectX, the big di
 
 The general problem is the lack of documentation which leads new developers to go through the Pygame package, looking for information. However, if you browse through you will find an overwhelming amount of classes at the top of the index, making the package seem confusing. The thing is that you can do a great deal with just a few functions and you may never need to use many of the classes.
 
-1.
-import os, sys, pygame
-from pygame.locals import *
 
-First import a few non-Pygame modules. This will be used for platform independent paths and files. Than import pygame itself. When pygame is imported, it doesn't actually import all the pygame modules, as some are optional. One of these modules, called locals, contains a subset of pygame with comonly used functions like rect and quit in the easy to access global namespace. For upcoming examples the locals module will be included so that these functions will be available as well.
 
 __name__
 Every module has a name and statements in a module can find out the name of its module. This is especially handy in one particular situation - As mentioned previously, when a module is imported for the first time, the main block in that module is run. What if we want to run the block only if the program was used by itself and not when it was imported from another module? This can be achieved using the __name__ attribute of the module.
+
+
+
+
+The most important element is the suface. The surface is blank slate and is the space where we put lines images and colors. the display surface of the screen is set with pygame.display.set_mode()
+
+
+

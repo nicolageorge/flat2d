@@ -26,8 +26,10 @@ class Platform(Entity):
         Entity.__init__(self)
         self.image = Surface((32, 32))
         self.image.convert()
-        self.image.fill(Color("#DDDDDD"))
+        self.image.fill(Color("#DDDD00"))
+        # Rect(left, top, width, height) 
         self.rect = Rect(x, y, 32, 32)
+
 
 def main():
     pygame.init()
@@ -39,11 +41,13 @@ def main():
     bg.fill(Color("#000000"))
     entities = pygame.sprite.Group()
     
+    # 20 columns, 640 / 32
+    # 15 rows, 480 / 32
     level = [
         "PPPPPPPPPPPPPPPPPPPP",
         "P                  P",
         "P                  P",
-        "P                  P",
+        "P   PPP            P",
         "P                  P",
         "P                  P",
         "P                  P",
@@ -69,6 +73,23 @@ def main():
 
     while 1:
         timer.tick(60)
+        # this gets input from the user. Pygame understands basic windows
+        # commands. Pygame.event handles anything that newwds to go to the 
+        # event queue. Input from any sort of device, keyboard, joystick, etc
+        # This creates a new event object that goes to the queue
+        # pygame.event.get gets events from the queue.
+        # Types of events:
+        # QUIT - quit or close button
+        # ACTIVEEVENT - constains state or gain
+        # KEYDOWN - Unicode Key when pressed
+        # KEYUP - unicode key when release
+        # MOUSEMOTION - mouse position
+        # MOUSEBUTTONDOWN - Position mouse button pressed
+        # MOUSEBUTTONUP - position when released
+        # JOYBUTTONDOWN - joystick button pressed
+        # JOYBUTTONUP - joystick button released
+        # VIDEORESIZE - window or video resize
+        # USEREVENT - coded user event
 
         for e in pygame.event.get():
             if e.type == QUIT: raise SystemExit, "QUIT"

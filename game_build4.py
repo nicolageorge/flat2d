@@ -33,6 +33,7 @@ class Platform(Entity):
         self.image.fill(Color("#DDDDDD"))
         self.rect = Rect(x, y, 32, 32)
 
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((window_width, window_height))
@@ -42,13 +43,12 @@ def main():
     bg.convert()
     bg.fill(Color("#000000"))
 
-    entities = pygame.sprite.Group()
-    player = Player(32, 32)
+    entities = pygame.sprite.Group()    
     level = [
         "PPPPPPPPPPPPPPPPPPPP",
         "P                  P",
         "P                  P",
-        "P                  P",
+        "P     CC           P",
         "P                  P",
         "P                  P",
         "P                  P",
@@ -72,6 +72,8 @@ def main():
             x += 32
         y += 32
         x = 0
+
+    player = Player(32, 32)
     entities.add(player)
 
     while 1:
