@@ -5,13 +5,9 @@ from pygame import *
 window_height = 480
 window_width  = 640
 
-DISPLAY = (window_width, window_height)
-DEPTH = 32
-FLAGS = 0
-
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite(__init__(self))
+        pygame.sprite.Sprite.__init__(self)
 
 
 class Player(Entity):
@@ -27,17 +23,15 @@ class Player(Entity):
 
 class Platform(Entity):
     def __init__(self, x, y):
-        Entity.init(self)
+        Entity.__init__(self)
         self.image = Surface((32, 32))
         self.image.convert()
         self.image.fill(Color("#DDDDDD"))
         self.rect = Rect(x, y, 32, 32)
 
 def main():
-    global cameraX, cameraY
     pygame.init()
-    screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
-    pygame.display.set_caption("Use arrows to move")
+    screen = pygame.display.set_mode((window_width, window_height))
     timer = pygame.time.Clock()
 
     bg = Surface((32, 32))
@@ -62,6 +56,7 @@ def main():
         "P                  P",
         "PPPPPPPPPPPPPPPPPPPP",
     ]
+    x = y = 0
     for row in level:
         for col in row:
             if col == "P":

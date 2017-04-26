@@ -5,10 +5,6 @@ from pygame import *
 window_height = 480
 window_width  = 640
 
-DISPLAY = (window_width, window_height)
-DEPTH = 32
-FLAGS = 0
-
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -39,8 +35,7 @@ class Platform(Entity):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
-    pygame.display.set_caption("Use arrows to move")
+    screen = pygame.display.set_mode((window_width, window_height))
     timer = pygame.time.Clock()
 
     bg = Surface((32, 32))
@@ -81,7 +76,7 @@ def main():
 
     while 1:
         timer.tick(60)
-        
+
         for e in pygame.event.get():
             if e.type == QUIT: raise SystemExit, "QUIT"
             if e.type == KEYDOWN and e.key == K_ESCAPE:

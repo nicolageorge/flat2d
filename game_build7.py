@@ -49,12 +49,12 @@ class Player(Entity):
         # if not(up or down):
             # self.yvel = 0
 
-        # add velocity to x direction 
+        # add velocity to x direction
         self.rect.left += self.xvel
         #check for horizontal collisions
         self.collide(self.xvel, 0, platforms)
 
-        # add velocity to y direction 
+        # add velocity to y direction
         self.rect.top += self.yvel
         # assume we re in the air
         self.onGround = False
@@ -87,7 +87,7 @@ class Platform(Entity):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
+    screen = pygame.display.set_mode(DISPLAY)
     pygame.display.set_caption("Use arrows to move")
     timer = pygame.time.Clock()
 
@@ -132,7 +132,7 @@ def main():
 
     while 1:
         timer.tick(60)
-        
+
         for e in pygame.event.get():
             if e.type == QUIT: raise SystemExit, "QUIT"
             if e.type == KEYDOWN and e.key == K_ESCAPE:
