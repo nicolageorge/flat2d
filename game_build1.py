@@ -2,17 +2,9 @@
 import pygame
 from pygame import *
 
-window_height = 480
-window_width  = 640
-
-DISPLAY = (window_width, window_height)
-DEPTH = 32
-FLAGS = 0
-
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite(__init__(self))
-
+        pass
 
 class Player(Entity):
     def __init__(self, x, y):

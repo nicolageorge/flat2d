@@ -39,7 +39,7 @@ class Player(Entity):
             self.xvel = 8
         if not self.onGround:
             # accelerate with gravity
-            self.yvel += 2
+            self.yvel += 0.9
             # max falling speed
             if self.yvel > 50:
                 self.yvel = 50
