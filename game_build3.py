@@ -11,11 +11,11 @@ FLAGS = 0
 
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite(__init__(self))
+        pygame.sprite.Sprite.__init__(self)
 
 
 class Player(Entity):
-    def __init__(self, x, y):
+    def __init__(self):
         pass
 
     def update():
@@ -27,14 +27,13 @@ class Player(Entity):
 
 class Platform(Entity):
     def __init__(self, x, y):
-        Entity.init(self)
+        Entity.__init__(self)
         self.image = Surface((32, 32))
         self.image.convert()
         self.image.fill(Color("#DDDDDD"))
         self.rect = Rect(x, y, 32, 32)
 
 def main():
-    global cameraX, cameraY
     pygame.init()
     screen = pygame.display.set_mode(DISPLAY, FLAGS, DEPTH)
     pygame.display.set_caption("Use arrows to move")
@@ -43,8 +42,8 @@ def main():
     bg = Surface((32, 32))
     bg.convert()
     bg.fill(Color("#000000"))
-
     entities = pygame.sprite.Group()
+    
     level = [
         "PPPPPPPPPPPPPPPPPPPP",
         "P                  P",
@@ -62,6 +61,7 @@ def main():
         "P                  P",
         "PPPPPPPPPPPPPPPPPPPP",
     ]
+    x = y = 0
     for row in level:
         for col in row:
             if col == "P":
@@ -73,6 +73,12 @@ def main():
 
 
     while 1:
+        timer.tick(60)
+
+        for e in pygame.event.get():
+            if e.type == QUIT: raise SystemExit, "QUIT"
+            if e.type == KEYDOWN and e.key == K_ESCAPE:
+                raise SystemExit, "QUIT"
 
         # draw background
         for y in range(32):

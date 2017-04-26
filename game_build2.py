@@ -11,11 +11,11 @@ FLAGS = 0
 
 class Entity(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite(__init__(self))
+        pass
 
 
 class Player(Entity):
-    def __init__(self, x, y):
+    def __init__(self):
         pass
 
     def update():
@@ -37,7 +37,7 @@ def main():
     bg.convert()
     bg.fill(Color("#000000"))
     while 1:
-
+        timer.tick(60)
         #draw background
         for y in range(32):
             for x in range(32):

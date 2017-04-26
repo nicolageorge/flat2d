@@ -15,7 +15,7 @@ class Entity(pygame.sprite.Sprite):
 
 
 class Player(Entity):
-    def __init__(self, x, y):
+    def __init__(self):
         pass
 
     def update():
@@ -33,7 +33,7 @@ class Platform(Entity):
 def main():
 
     while 1:
-        pass
+        timer.tick(60)
 
 
 if __name__== "__main__":
